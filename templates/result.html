@@ -1,0 +1,157 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>CB BROWSER</title>
+    <!-- load stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">  
+    <link rel="stylesheet" href="static/results/css/bootstrap.min.css">                                      <!-- Bootstrap style -->
+    <link rel="stylesheet" href="static/results/css/templatemo-style.css">                                   <!-- Templatemo style -->
+
+    </head>
+
+    <body>
+       
+        <div class="tm-header">
+            <div class="container-fluid">
+                <div class="tm-header-inner">
+                    <a href="#" class="navbar-brand tm-site-name">CB Browser</a>
+                    
+                    <!-- navbar -->
+                    <nav class="navbar tm-main-nav">
+
+                        <button class="navbar-toggler hidden-md-up" type="button" data-toggle="collapse" data-target="#tmNavbar">
+                            &#9776;
+                        </button>
+                        
+                        <div class="collapse navbar-toggleable-sm" id="tmNavbar">
+                            <form class="signup-form form-inline justify-content-center pt-3" action ="../" method="POST">{% csrf_token %}
+                                <div class="form-group">
+                                    <label class="sr-only" for="">SEARCH AGAIN</label>
+                                    <input id="search" type="text" name ="query" placeholder="What are you looking for?" />
+                                </div>
+                                <button type="submit" class="btn btn-primary">Search</button>
+                            </form>                       
+                        </div>
+                        
+                    </nav>  
+
+                </div>                                  
+            </div>            
+        </div>
+
+        <section class="tm-section">
+            <div class="container-fluid">
+                                <div class="row">
+                    {% for link,src in final %}
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+
+                        <div class="tm-content-box">
+                            <img src="{{src}}" alt="Image" class="tm-margin-b-20 img-fluid">
+                            <h4 class="tm-margin-b-20 tm-gold-text">WEBSITE {{forloop.counter}}</h4>
+                            <p class="tm-margin-b-20">{{ link }}</p>
+                            <a href="{{link}}" class="tm-btn text-uppercase" target="_blank">Visit</a>    
+                        </div>  
+
+                    </div>
+                    {% endfor %}
+
+                    <!-- <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+
+                        <div class="tm-content-box">
+                            <img src="static/results/img/tm-img-310x180-2.jpg" alt="Image" class="tm-margin-b-20 img-fluid">
+                            <h4 class="tm-margin-b-20 tm-gold-text">Website 2</h4>
+                            <p class="tm-margin-b-20">Link</p>
+                            <a href="#" class="tm-btn text-uppercase">Visit</a>    
+                        </div>  
+
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+
+                        <div class="tm-content-box">
+                            <img src="static/results/img/tm-img-310x180-3.jpg" alt="Image" class="tm-margin-b-20 img-fluid">
+                            <h4 class="tm-margin-b-20 tm-gold-text">Website 3</h4>
+                            <p class="tm-margin-b-20">Link</p>
+                            <a href="#" class="tm-btn text-uppercase">Visit</a>    
+                        </div>  
+
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+
+                        <div class="tm-content-box">
+                            <img src="static/results/img/tm-img-310x180-4.jpg" alt="Image" class="tm-margin-b-20 img-fluid">
+                            <h4 class="tm-margin-b-20 tm-gold-text">Website 4</h4>
+                            <p class="tm-margin-b-20">Link</p>
+                            <a href="#" class="tm-btn text-uppercase">Visit</a>  
+                            </div>  
+                            
+                        </div> -->
+                                    </div>
+                                    <br>
+                                    <a href="{% url 'start' %}" class="tm-btn text-uppercase">Return To Home Page</a>  
+                                
+        </section>
+        
+        <footer class="tm-footer">
+            <div class="container-fluid">
+                <div class="row">
+                    
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+                        
+                        <div class="tm-footer-content-box">
+                            <h3 class="tm-gold-text tm-title tm-footer-content-box-title">About Us</h3>
+                            <div class="tm-gray-bg">
+                                <p>CB Browser is a simple browser Presented to you by Code Breakers.</p>
+                                <p><strong>CB BROWSER</strong></p>    
+                            </div>    
+                        </div>
+                                                
+                    </div>
+                    <div class="clearfix hidden-lg-up"></div>
+
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+
+                        <div class="tm-footer-content-box">
+                        
+                            <h3 class="tm-gold-text tm-title tm-footer-content-box-title">CB Browser</h3>
+                            <p class="tm-margin-b-30">Visit homepage.</p><hr class="tm-margin-b-30">
+                            <a href="{% url 'start' %}" class="tm-btn tm-btn-gray text-uppercase">Visit</a>
+
+                        </div>
+                        
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+
+                        <div class="tm-footer-content-box">
+                        
+                            <h3 class="tm-gold-text tm-title tm-footer-content-box-title">What is different in CB Browser?</h3>
+                            <p class="tm-margin-b-20">We present you the search results from many websites in a minimalistic and easy way.</p>
+                        </div>
+                        
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 tm-copyright-col">
+                        <p class="tm-copyright-text">Copyrighted by Code Breakers.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- load JS files -->
+        <script src="static/results/js/jquery-1.11.3.min.js"></script>             <!-- jQuery (https://jquery.com/download/) -->
+        <script src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script> <!-- Tether for Bootstrap, http://stackoverflow.com/questions/34567939/how-to-fix-the-error-error-bootstrap-tooltips-require-tether-http-github-h --> 
+        <script src="static/results/js/bootstrap.min.js"></script>                 <!-- Bootstrap (http://v4-alpha.getbootstrap.com/) -->
+       
+</body>
+</html>
